@@ -15,8 +15,8 @@ export default function Lang() {
         <div className="w-full h-full bg-no-repeat bg-cover bg-[url('../img/bg.jpeg')] bg-black/70 opacity-60 bg-blend-darken">
           <div className="flex flex-col justify-center items-center h-screen">
             <h1 className="text-6xl font-bold text-white text-center">Parex Partners</h1>
-            <p className="block text-2xl text-white text-center m-3">Консультационные услуги и помощь в получении карты побыту
-              в Великопольском воеводстве
+            <p className="block text-2xl text-white text-center m-3">Консультаційні послуги та допомога в отриманні карти побуту
+              у Великопольському воєводстві
             </p>
           </div>
         </div>
