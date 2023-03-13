@@ -1,7 +1,53 @@
 import Navbar from '@/components/Navbar'
 import Head from 'next/head'
 import React from 'react'
+import CardList from '@/components/CardList'
+import { CardDescription } from '@/components/CardList'
+import car from '../../img/icons/car.png'
+import cardPass from '../../img/icons/cardPass.png'
+import credit from '../../img/icons/credit.png'
+import job from '../../img/icons/job.png'
+import pass from '../../img/icons/pass.png'
+import social from '../../img/icons/social.png'
+import travel from '../../img/icons/travel.png'
 
+const CARDS: CardDescription[] = [
+  {
+    name: 'Obywatelstwo',
+    imageSrc: pass,
+    description: 'Karta pobytu -to jestpierwszy krok douzyskanie polskiego obywatelstwo.'
+  },
+  {
+    name: 'Karty pobytowe dla rodziny',
+    imageSrc: cardPass,
+    description: 'Członkowie Twojej rodzinybędzie mógł również otrzymać karty na podstawie zezwolenia na pobyt lub stałego pobytu'
+  },
+  {
+    name: 'Podróż',
+    imageSrc: travel,
+    description: 'Możliwośćpobyt w innych krajach strefy Schengenstrefy bezwizowe.'
+  },
+  {
+    name: 'Rejestracja pojazdu',
+    imageSrc: car,
+    description: 'Posiadając kartę pobytu możesz zarejestrować swój samochód'
+  },
+  {
+    name: 'Programu 500+',
+    imageSrc: social,
+    description: '500 zł+ miesięcznieBądź towarzyskipomoc do pełnoletnościdziecko'
+  },
+  {
+    name: 'Możliwość użyczenia',
+    imageSrc: credit,
+    description: 'Z kartą pobytową pożyczka będzie dla Ciebie dostępnapolskie banki.'
+  },
+  {
+    name: 'Legalne zatrudnienie',
+    imageSrc: job,
+    description: 'Będziesz mógł legalnie pracować na terenie RP'
+  }
+]
 
 export default function Lang() {
   return (
@@ -20,6 +66,8 @@ export default function Lang() {
             </p>
           </div>
         </div>
-      </main></>
+      </main>
+      <CardList cards={CARDS} />
+      </>
   )
 }
