@@ -66,28 +66,29 @@ const Navbar = () => {
                 >
                   <span className="sr-only">View notifications</span>
                 </button>
-                <Link href='/ru'>
-                  <a
+
+                <a
                     href="#"
                     className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
-                    ru
-                  </a>
+                      <Link href='/ru'>
+                      ru
                 </Link>
+                  </a>
                 <span>/</span>
+                <a
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
                 <Link href='/ua'>
-                  <a
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
                     ua
-                  </a>
                 </Link>
-                <span>/</span>
-                <Link href='/pl'>
-                  <a
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
-                    pl
                   </a>
-                </Link>
 
+                <span>/</span>
+                <a
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                  <Link href='/pl'>
+                      pl
+                </Link>
+                  </a>
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
