@@ -9,10 +9,11 @@ export type CardDescription = {
 
 type Props = {
   cards: CardDescription[]
+  title: string
 }
 
 export default function CardList(props:Props) {
-  const { cards } = props
+  const { cards, title } = props
   return (
     <div className="bg-white">
       <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
@@ -20,7 +21,7 @@ export default function CardList(props:Props) {
           <div className="mx-auto max-w-xl lg:max-w-none">
             <div className="text-center">
               <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-                We built our business on customer service
+                {title}
               </h2>
             </div>
             <div className="mx-auto mt-12 grid max-w-sm grid-cols-1 gap-y-10 gap-x-8 sm:max-w-none lg:grid-cols-3">

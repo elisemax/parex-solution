@@ -50,6 +50,7 @@ const CARDS: CardDescription[] = [
 ]
 
 export default function Lang() {
+  const title = 'МОЖЛИВОСТІ КАРТИ ПОБИТУ'
   return (
         <><Head>
       <title>Create Next App</title>
@@ -68,7 +69,7 @@ export default function Lang() {
           </div>
         </div>
       </main>
-      <CardList cards={CARDS} />
+      <CardList title={title} cards={CARDS} />
       </>
   )
 }
