@@ -1,6 +1,54 @@
 import Navbar from '@/components/Navbar'
 import Head from 'next/head'
 import React from 'react'
+import CardList from '@/components/CardList'
+import { CardDescription } from '@/components/CardList'
+import car from '../../img/icons/car.png'
+import cardPass from '../../img/icons/cardPass.png'
+import credit from '../../img/icons/credit.png'
+import job from '../../img/icons/job.png'
+import pass from '../../img/icons/pass.png'
+import social from '../../img/icons/social.png'
+import travel from '../../img/icons/travel.png'
+
+const CARDS: CardDescription[] = [
+  {
+    name: 'Гражданство',
+    imageSrc: pass,
+    description: 'Карта побыту – это первый шаг к получению Польского гражданства.'
+  },
+  {
+    name: 'Карты побыту для семьи',
+    imageSrc: cardPass,
+    description: 'Члены вашей семьи также смогут получить карты на основе вашего ВНЖ или ПМЖ'
+  },
+  {
+    name: 'Путешествие',
+    imageSrc: travel,
+    description: 'Возможность пребывания в других странах Шенгенской зоны без визы.'
+  },
+  {
+    name: 'Регистрация автомобиля',
+    imageSrc: car,
+    description: 'С картой побыту вы сможете зарегистрировать свой автомобиль'
+  },
+  {
+    name: 'Программа 500+',
+    imageSrc: social,
+    description: '500+ злотых каждый месяц Получайте социальную помощь до совершеннолетия ребенка'
+  },
+  {
+    name: 'Возможность кредитования',
+    imageSrc: credit,
+    description: 'С картой побыту, для вас будет доступно кредитование в Польских банках.'
+  },
+  {
+    name: 'Легальное трудоустройство',
+    imageSrc: job,
+    description: 'Вы сможете легально работать на территории Польской Републики'
+  }
+]
+
 
 export default function Lang() {
   return (<>
@@ -20,6 +68,7 @@ export default function Lang() {
               </p>
               </div>
           </div>
+          <CardList cards={CARDS} />
         </main>
       </>
   )
