@@ -1,8 +1,9 @@
 import { Html, Head, Main, NextScript } from 'next/document'
+import router from 'next/router';
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html>
       <Head />
       <body>
         <Main />

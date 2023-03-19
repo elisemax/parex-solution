@@ -1,6 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Head from 'next/head'
-import React from 'react'
+import React, { useState } from 'react'
 import CardList from '@/components/CardList'
 import { CardDescription } from '@/components/CardList'
 import MainSection from '@/components/MainSection'
@@ -19,6 +19,9 @@ import viber from '../../img/icons/viber.png'
 import { CheckBadgeIcon } from '@heroicons/react/20/solid'
 import FeatureSection from '@/components/FeatureSection'
 import Contact from '@/components/Contact'
+import Modal from '@/components/Modal'
+import Reviews from '@/components/Reviews'
+import Footer from '@/components/Footer'
 
 const CARDS: CardDescription[] = [
   {
@@ -95,6 +98,9 @@ const descriptionContact = 'Мы заботимся о ваших данных. 
 const privacy = 'Политикой'
 const policy = 'конфиденциальности'
 const btn = 'Заказать звонок'
+const labelMail = 'Ваш email'
+const labelName = 'Ваше имя'
+const labelPhone = 'Ваш телефон'
 const contacts = [
   {
     title: 'Телефон',
@@ -123,6 +129,7 @@ const contacts = [
   },
 ]
 export default function Lang() {
+  const [ openModal, setOpenModal ] = useState(false)
   return (<>
         <Head>
           <title>Create Next App</title>
@@ -135,7 +142,11 @@ export default function Lang() {
           <MainSection title={titleMain} description={descriptionMain}/>
           <CardList title={titleCard} cards={CARDS}/>
           <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
-          <Contact contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
+          <Contact setOpen={setOpenModal} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
+          <Modal setOpen={setOpenModal} open={openModal}/>
+          <Reviews/>
+          <Contact setOpen={setOpenModal} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
+          <Footer privacy={privacy} policy={policy} description={descriptionContact}/>
         </main>
       </>
   )

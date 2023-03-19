@@ -57,7 +57,7 @@ export default function FeatureSection(props: Props) {
                     height={1442} />
                 </div>
                 <div
-                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl shadow-xl"
+                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 rounded-3xl shadow-xl"
                     aria-hidden="true"
                 />
                 </div>
