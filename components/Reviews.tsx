@@ -15,7 +15,7 @@ const reviews = [
     datetime: '2021-01-06',
   },
     {
-    id: 1,
+    id: 2,
     title: "Can't say enough good things",
     rating: 5,
     content: `
@@ -27,7 +27,7 @@ const reviews = [
     datetime: '2021-01-06',
   },
     {
-    id: 1,
+    id: 3,
     title: "Can't say enough good things",
     rating: 5,
     content: `
