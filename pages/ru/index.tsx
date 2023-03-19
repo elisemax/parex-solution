@@ -145,7 +145,6 @@ export default function Lang() {
           <Contact setOpen={setOpenModal} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
           <Modal setOpen={setOpenModal} open={openModal}/>
           <Reviews/>
-          <Contact setOpen={setOpenModal} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
           <Footer privacy={privacy} policy={policy} description={descriptionContact}/>
         </main>
       </>

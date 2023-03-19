@@ -1,28 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { mailOptions, transporter } from "@/config/nodemailer";
-import type { NextApiRequest, NextApiResponse } from "next";
-
-type Data = {
-  name: string;
-  phone: string;
-  email?: string;
-};
-
-const generateEmailContent = (data: Data) => {
-  const stringData = Object.entries(data).reduce(
-    (str, [key, value]) => (str += `${key}: ${value}: \n${value} \n \n`),
-    ""
-  );
-  const htmlData = Object.entries(data).reduce(
-    (str, [key, value]) =>
-      (str += `<h1 class="form-heading" align="left">${key}: ${value}</h1>
-      <p class="form-answer" align="left">${value}</p>
-    `),
-    ""
-  );
-  return {
-    text: stringData,
-    html: `<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title></title>
@@ -146,30 +122,5 @@ const generateEmailContent = (data: Data) => {
         </tr>
     </table>
 </body>
-</html>`,
-  };
-};
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  res.status(200).json({
-    name: req.body.name,
-    phone: req.body.phone,
-    email: req.body.email,
-  });
-  const data = {
-    name: req.body.name,
-    phone: req.body.phone,
-    email: req.body.email,
-  };
-  try {
-    await transporter.sendMail({
-      ...mailOptions,
-      ...generateEmailContent(data),
-      subject: "New subscription",
-    });
-  } catch (e) {
-    console.log(e);
-  }
-}
+
+</html>

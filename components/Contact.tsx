@@ -25,6 +25,11 @@ export default function Contact(props: Props) {
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
   const [mail, setMail] = useState('')
+  const [touched, setTouched] = useState({})
+
+  const handleBlur = (e: any) => {
+    setTouched({ ...touched, [e.target.name]: true })
+  }
 
   const handleSubmit = (e:any) => {
     e.preventDefault()
@@ -60,7 +65,8 @@ export default function Contact(props: Props) {
               name="first-name"
               type="text"
               autoComplete="given-name"
-              value={name}
+              value={name && name}
+              onBlur={handleBlur}
               onChange={(e) => {
                 setName(e.target.value)
               }}
@@ -76,7 +82,8 @@ export default function Contact(props: Props) {
               name="phone-number"
               type="tel"
               autoComplete="tel"
-              value={phone}
+              value={phone && phone}
+              onBlur={handleBlur}
               pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
               onChange={(e) => {
                 setPhone(e.target.value)
@@ -92,7 +99,8 @@ export default function Contact(props: Props) {
               id="email-address"
               name="email"
               type="email"
-              value={mail}
+              value={mail && mail}
+              onBlur={handleBlur}
               onChange={(e) => {
                 setMail(e.target.value)
               }}
@@ -101,6 +109,7 @@ export default function Contact(props: Props) {
               placeholder="josef.kowalski@gmail.com"
             />
             <button
+              
               type="submit"
               onClick={handleSubmit}
               className="flex-none rounded-md mt-1 bg-red-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"

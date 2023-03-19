@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.form-heading {
+  @apply text-2xl font-bold text-gray-800 text-left mt-0 font-mono p-0 mx-0 mb-2;
+}
+
+.form-ansewer {
+  @apply text-xl text-gray-800 text-left mt-0 font-mono p-0 mx-0 mb-6;
+}
