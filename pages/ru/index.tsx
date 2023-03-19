@@ -96,7 +96,7 @@ export default function Lang() {
         <main>
           <Navbar/>
           <MainSection title={titleMain} description={descriptionMain}/>
-          <CardList title={titleCard} cards={CARDS} />
+          <CardList title={titleCard} cards={CARDS}/>
           <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
         </main>
       </>

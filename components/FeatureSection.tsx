@@ -45,7 +45,7 @@ export default function FeatureSection(props: Props) {
             <div className="sm:px-6 lg:px-0">
                 <div className="relative isolate overflow-hidden bg-red-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pl-16 sm:pr-0 lg:mx-0 lg:max-w-none">
                 <div
-                    className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] bg-gray-100 ring-1 ring-inset "
+                    className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] skew-y-[-60deg] bg-gray-100 ring-1 ring-inset"
                     aria-hidden="true"
                 />
                 <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
@@ -57,7 +57,7 @@ export default function FeatureSection(props: Props) {
                     height={1442} />
                 </div>
                 <div
-                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl"
+                    className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl shadow-xl"
                     aria-hidden="true"
                 />
                 </div>
