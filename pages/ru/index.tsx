@@ -13,6 +13,7 @@ import social from '../../img/icons/social.png'
 import travel from '../../img/icons/travel.png'
 import { CheckBadgeIcon } from '@heroicons/react/20/solid'
 import FeatureSection from '@/components/FeatureSection'
+import Contact from '@/components/Contact'
 
 const CARDS: CardDescription[] = [
   {

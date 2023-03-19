@@ -20,7 +20,7 @@ type Props = {
 export default function FeatureSection(props: Props) {
     const { title, description, features } = props
     return (
-        <div className="overflow-hidden bg-white py-24 sm:py-32">
+        <div className="overflow-hidden bg-white py-8 sm:py-12">
         <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-y-16 gap-x-8 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
             <div className="px-6 lg:px-0 lg:pt-4 lg:pr-4">
@@ -45,7 +45,7 @@ export default function FeatureSection(props: Props) {
             <div className="sm:px-6 lg:px-0">
                 <div className="relative isolate overflow-hidden bg-red-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pl-16 sm:pr-0 lg:mx-0 lg:max-w-none">
                 <div
-                    className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-30deg] skew-y-[-60deg] bg-gray-100 ring-1 ring-inset"
+                    className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left skew-x-[-118deg] bg-gray-100 ring-1 ring-inset"
                     aria-hidden="true"
                 />
                 <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
