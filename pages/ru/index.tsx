@@ -67,7 +67,7 @@ const features = [
     icon: CheckBadgeIcon,
   },
   {
-    name: 'Помогаем реестре автомобилей.',
+    name: 'Помогаем в реестре автомобилей.',
     description: 'Помощь в регистрации автомобиля и замене водительского удостоверения.',
     icon: CheckBadgeIcon,
   },
