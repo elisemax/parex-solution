@@ -3,6 +3,7 @@ import Head from 'next/head'
 import React from 'react'
 import CardList from '@/components/CardList'
 import { CardDescription } from '@/components/CardList'
+import MainSection from '@/components/MainSection'
 import car from '../../img/icons/car.png'
 import cardPass from '../../img/icons/cardPass.png'
 import credit from '../../img/icons/credit.png'
@@ -10,6 +11,8 @@ import job from '../../img/icons/job.png'
 import pass from '../../img/icons/pass.png'
 import social from '../../img/icons/social.png'
 import travel from '../../img/icons/travel.png'
+import { CheckBadgeIcon } from '@heroicons/react/20/solid'
+import FeatureSection from '@/components/FeatureSection'
 
 const CARDS: CardDescription[] = [
   {
@@ -48,10 +51,41 @@ const CARDS: CardDescription[] = [
     description: 'Вы сможете легально работать на территории Польской Републики'
   }
 ]
+const titleMain = 'Parex Partners'
+const descriptionMain = 'Консультационные услуги и помощь в получении карты побыту в Великопольском воеводстве'
+const titleCard = 'ВОЗМОЖНОСТИ КАРТЫ ПОБЫТУ'
 
+const features = [
+  {
+    name: 'Бесплатная первичная консультация.',
+    description: 'Бесплатная консультация по получению карты побыту.',
+    icon: CheckBadgeIcon,
+  },
+  {
+    name: 'Оформление документов',
+    description: 'Оформление документов для карты побыту ВНЖ и ПМЖ',
+    icon: CheckBadgeIcon,
+  },
+  {
+    name: 'Помогаем реестре автомобилей.',
+    description: 'Помощь в регистрации автомобиля и замене водительского удостоверения.',
+    icon: CheckBadgeIcon,
+  },
+  {
+    name: 'Превод документов.',
+    description: 'Делаем переводы документов на польский язык.',
+    icon: CheckBadgeIcon,
+  },
+  {
+    name: 'Подготовка документов .',
+    description: 'Подготавливаем документы для польского регистра.',
+    icon: CheckBadgeIcon,
+  },
+]
+const titleFeature = 'Почему мы?'
+const descriptionFeature = 'Мы предоставляем вам бесплатную первичную консультацию подробный анализ вашей ситуации и подбор оптимального решения. Берем на себя весь процесс контакта с Ужендом и инспектором, который ведет дело. Сохраняем сканы всех отправленных документов и предоставим подтверждение подачи в Уженд.Свяжемся с работодателем, уточним детали по трудоустройству и поможем правильно заполнить все необходимые документы. Сопровождаем дело до выдачи решения (децизии) и пластиковой карты.'
 
 export default function Lang() {
-  const title = 'ВОЗМОЖНОСТИ КАРТЫ ПОБЫТУ'
   return (<>
         <Head>
           <title>Create Next App</title>
@@ -61,15 +95,9 @@ export default function Lang() {
         </Head>
         <main>
           <Navbar/>
-          <div className="w-full h-full bg-no-repeat bg-cover bg-[url('../img/bg.jpeg')] bg-black/70 opacity-60 bg-blend-darken">
-            <div className="flex flex-col justify-center items-center h-screen">
-              <h1 className="text-6xl font-bold text-white text-center">Parex Partners</h1>
-              <p className="block text-2xl text-white text-center m-3">Консультационные услуги и помощь в получении карты побыту
-              в Великопольском воеводстве
-              </p>
-              </div>
-          </div>
-          <CardList title={title} cards={CARDS} />
+          <MainSection title={titleMain} description={descriptionMain}/>
+          <CardList title={titleCard} cards={CARDS} />
+          <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
         </main>
       </>
   )

@@ -10,6 +10,7 @@ import job from '../../img/icons/job.png'
 import pass from '../../img/icons/pass.png'
 import social from '../../img/icons/social.png'
 import travel from '../../img/icons/travel.png'
+import MainSection from '@/components/MainSection'
 
 const CARDS: CardDescription[] = [
   {
@@ -48,9 +49,12 @@ const CARDS: CardDescription[] = [
     description: 'Ви зможете легально працювати на території Польської Республіки'
   }
 ]
+const titleCard = 'МОЖЛИВОСТІ КАРТИ ПОБИТУ'
+const titleMain = 'Parex Partners'
+const descriptionMain = 'Консультаційні послуги та допомога в отриманні карти побуту у Великопольському воєводстві'
 
 export default function Lang() {
-  const title = 'МОЖЛИВОСТІ КАРТИ ПОБИТУ'
+
   return (
         <><Head>
       <title>Create Next App</title>
@@ -60,16 +64,9 @@ export default function Lang() {
     </Head>
     <main>
         <Navbar />
-        <div className="w-full h-full bg-no-repeat bg-cover bg-[url('../img/bg.jpeg')] bg-black/70 opacity-60 bg-blend-darken">
-          <div className="flex flex-col justify-center items-center h-screen">
-            <h1 className="text-6xl font-bold text-white text-center">Parex Partners</h1>
-            <p className="block text-2xl text-white text-center m-3">Консультаційні послуги та допомога в отриманні карти побуту
-              у Великопольському воєводстві
-            </p>
-          </div>
-        </div>
+        <MainSection title={titleMain} description={descriptionMain} />
       </main>
-      <CardList title={title} cards={CARDS} />
+      <CardList title={titleMain} cards={CARDS} />
       </>
   )
 }
