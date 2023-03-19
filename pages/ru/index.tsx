@@ -11,6 +11,11 @@ import job from '../../img/icons/job.png'
 import pass from '../../img/icons/pass.png'
 import social from '../../img/icons/social.png'
 import travel from '../../img/icons/travel.png'
+import mail from '../../img/icons/gmail.png'
+import phone from '../../img/icons/phone-call.png'
+import telegram from '../../img/icons/telegram.png'
+import whatsapp from '../../img/icons/whatsapp.png'
+import viber from '../../img/icons/viber.png'
 import { CheckBadgeIcon } from '@heroicons/react/20/solid'
 import FeatureSection from '@/components/FeatureSection'
 import Contact from '@/components/Contact'
@@ -85,7 +90,38 @@ const features = [
 ]
 const titleFeature = 'Почему мы?'
 const descriptionFeature = 'Мы предоставляем вам бесплатную первичную консультацию подробный анализ вашей ситуации и подбор оптимального решения. Берем на себя весь процесс контакта с Ужендом и инспектором, который ведет дело. Сохраняем сканы всех отправленных документов и предоставим подтверждение подачи в Уженд.Свяжемся с работодателем, уточним детали по трудоустройству и поможем правильно заполнить все необходимые документы. Сопровождаем дело до выдачи решения (децизии) и пластиковой карты.'
-
+const titleContact = 'Просто позвоните нам или напишите любым удобным способом:'
+const descriptionContact = 'Мы заботимся о ваших данных. Ознакомьтесь с нашей'
+const privacy = 'Политикой'
+const policy = 'конфиденциальности'
+const btn = 'Заказать звонок'
+const contacts = [
+  {
+    title: 'Телефон',
+    contact: '+48 501 100 100',
+    img: phone
+  },
+  {
+    title: 'Email',
+    contact: 'parex-partners@gmail.com',
+    img: mail
+  },
+  {
+    title: 'WhatsApp',
+    contact: '+48 501 100 100',
+    img: whatsapp
+  },
+  {
+    title: 'Telegram',
+    contact: '+48 501 100 100',
+    img: telegram
+  },
+  {
+    title: 'Viber',
+    contact: '+48 501 100 100',
+    img: viber
+  },
+]
 export default function Lang() {
   return (<>
         <Head>
@@ -99,6 +135,7 @@ export default function Lang() {
           <MainSection title={titleMain} description={descriptionMain}/>
           <CardList title={titleCard} cards={CARDS}/>
           <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
+          <Contact contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
         </main>
       </>
   )
