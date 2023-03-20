@@ -1,5 +1,8 @@
+import { sendContactForm } from '@/lib/api'
 import Image, { StaticImageData } from 'next/image'
 import React, { useState } from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 type ContactType = {
   title: string
@@ -13,41 +16,46 @@ type Props = {
   privacy: string
   policy: string
   btn: string
+  lang: string
   labelName: string
   labelPhone: string
   labelMail: string
   setOpen: (open: boolean) => void
+  setError: (error: boolean) => void
+  setIsLoading: (isLoading: boolean) => void
   contacts: ContactType[]
 }
 
 export default function Contact(props: Props) {
-  const { title, description, privacy, policy, contacts, btn, labelMail, labelName, labelPhone, setOpen } = props
+  const { title, description, privacy, policy, contacts, btn, labelMail, labelName, labelPhone, setOpen, setError, setIsLoading, lang } = props
   const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [mail, setMail] = useState('')
+  const [email, setMail] = useState('')
   const [touched, setTouched] = useState({})
 
   const handleBlur = (e: any) => {
     setTouched({ ...touched, [e.target.name]: true })
   }
 
-  const handleSubmit = (e:any) => {
+  const handleSubmit = async (e:any) => {
     e.preventDefault()
-    fetch('/api/subscribe', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-          name,
-          phone,
-          mail,
-        }),
-      })
+    try {
+      setOpen(true)
+      setIsLoading(true)
+      const res = await sendContactForm({ name, phone, email })
+      if (res.message !== 'Success') {
+        setError(true)
+      }
+    } catch (error) {
+    }finally{
       setMail('')
       setPhone('')
       setName('')
-      setOpen(true)
+      setIsLoading(false)
+    }
+      setMail('')
+      setPhone('')
+      setName('')
   }
   return (
     <div className="bg-white py-16 sm:py-24 lg:py-32">
@@ -55,7 +63,7 @@ export default function Contact(props: Props) {
         <div className="max-w-xl text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:col-span-7">
           <h2 className="inline sm:block lg:inline xl:block">{title}</h2>{' '}
         </div>
-        <form className="w-full max-w-md lg:col-span-5 lg:pt-2">
+        <form onSubmit={handleSubmit} className="w-full max-w-md lg:col-span-5 lg:pt-2">
           <div className="flex flex-col gap-x-4">
             <label htmlFor="fname" className="block text-sm font-semibold leading-6 text-gray-900">
               {labelName}
@@ -66,7 +74,7 @@ export default function Contact(props: Props) {
               type="text"
               minLength={2}
               autoComplete="given-name"
-              value={name !== '' ? name : undefined}
+              value={name}
               onBlur={handleBlur}
               onChange={(e) => {
                 setName(e.target.value)
@@ -83,7 +91,7 @@ export default function Contact(props: Props) {
               name="phone-number"
               type="tel"
               autoComplete="tel"
-              value={phone !== '' ? phone : undefined}
+              value={phone}
               onBlur={handleBlur}
               pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
               onChange={(e) => {
@@ -100,7 +108,7 @@ export default function Contact(props: Props) {
               id="email-address"
               name="email"
               type="email"
-              value={mail !== '' ? mail : undefined}
+              value={email}
               onBlur={handleBlur}
               pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
               onChange={(e) => {
@@ -112,7 +120,6 @@ export default function Contact(props: Props) {
             />
             <button
               type="submit"
-              onSubmit={handleSubmit}
               className="flex-none rounded-md mt-1 bg-red-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {btn}
@@ -120,9 +127,9 @@ export default function Contact(props: Props) {
           </div>
           <p className="mt-4 text-sm leading-6 text-gray-900">
             {description}{' '}
-            <a className="font-semibold text-blue-600 hover:text-blue-500">
+            <Link href={`${lang}/policy`} className="font-semibold text-blue-600 hover:text-blue-500">
               {privacy}&nbsp;{policy}
-            </a>
+            </Link>
             .
           </p>
         </form>

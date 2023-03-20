@@ -128,8 +128,17 @@ const contacts = [
     img: viber
   },
 ]
+const modalTitleSuccess = 'Спасибо за заявку!'
+const modalTitleError = 'Ошибка'
+const modalSuccess = 'Мы свяжемся с вами в ближайшее время.'
+const modalError = 'Произошла ошибка. Попробуйте позже.'
+const modalButton = 'Закрыть'
+const lang = 'ru'
+
 export default function Lang() {
   const [ openModal, setOpenModal ] = useState(false)
+  const [ error, setError ] = useState(false)
+  const [ isLoading, setIsLoading] = useState(false)
   return (<>
         <Head>
           <title>Create Next App</title>
@@ -142,10 +151,10 @@ export default function Lang() {
           <MainSection title={titleMain} description={descriptionMain}/>
           <CardList title={titleCard} cards={CARDS}/>
           <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
-          <Contact setOpen={setOpenModal} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
-          <Modal setOpen={setOpenModal} open={openModal}/>
+          <Contact lang={lang} setOpen={setOpenModal} setIsLoading={setIsLoading} setError={setError} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
+          <Modal modalTitleError={modalTitleError} modalTitleSuccess={modalTitleSuccess} button={modalButton} modalSuccess={modalSuccess} modalError={modalError} setOpen={setOpenModal} error={error} open={openModal} isLoading={isLoading}/>
           <Reviews/>
-          <Footer privacy={privacy} policy={policy} description={descriptionContact}/>
+          <Footer lang={lang} privacy={privacy} policy={policy} description={descriptionContact}/>
         </main>
       </>
   )
