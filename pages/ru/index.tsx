@@ -82,7 +82,7 @@ const features = [
     icon: CheckBadgeIcon,
   },
   {
-    name: 'Превод документов.',
+    name: 'Перевод документов.',
     description: 'Делаем переводы документов на польский язык.',
     icon: CheckBadgeIcon,
   },
@@ -105,7 +105,7 @@ const labelPhone = 'Ваш телефон'
 const contacts = [
   {
     title: 'Телефон',
-    contact: '+48 501 100 100',
+    contact: '+48 728 482 157 ',
     img: phone
   },
   {
@@ -115,17 +115,17 @@ const contacts = [
   },
   {
     title: 'WhatsApp',
-    contact: '+48 501 100 100',
+    contact: '+48 728 482 157 ',
     img: whatsapp
   },
   {
     title: 'Telegram',
-    contact: '+48 501 100 100',
+    contact: '+48 728 482 157 ',
     img: telegram
   },
   {
     title: 'Viber',
-    contact: '+48 501 100 100',
+    contact: '+48 728 482 157 ',
     img: viber
   },
 ]
