@@ -64,8 +64,9 @@ export default function Contact(props: Props) {
               id="first-name"
               name="first-name"
               type="text"
+              minLength={2}
               autoComplete="given-name"
-              value={name && name}
+              value={name !== '' ? name : undefined}
               onBlur={handleBlur}
               onChange={(e) => {
                 setName(e.target.value)
@@ -82,7 +83,7 @@ export default function Contact(props: Props) {
               name="phone-number"
               type="tel"
               autoComplete="tel"
-              value={phone && phone}
+              value={phone !== '' ? phone : undefined}
               onBlur={handleBlur}
               pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
               onChange={(e) => {
@@ -99,8 +100,9 @@ export default function Contact(props: Props) {
               id="email-address"
               name="email"
               type="email"
-              value={mail && mail}
+              value={mail !== '' ? mail : undefined}
               onBlur={handleBlur}
+              pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'
               onChange={(e) => {
                 setMail(e.target.value)
               }}
@@ -109,9 +111,8 @@ export default function Contact(props: Props) {
               placeholder="josef.kowalski@gmail.com"
             />
             <button
-              
               type="submit"
-              onClick={handleSubmit}
+              onSubmit={handleSubmit}
               className="flex-none rounded-md mt-1 bg-red-600 py-2.5 px-3.5 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
               {btn}

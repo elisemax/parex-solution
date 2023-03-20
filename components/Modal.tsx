@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { CheckIcon } from '@heroicons/react/24/outline'
-import React,{ Fragment, useState } from 'react'
+import React,{ Fragment } from 'react'
 
 type Props = {
     open: boolean
