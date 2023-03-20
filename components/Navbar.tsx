@@ -1,14 +1,21 @@
 import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import ScrollLink from './ScrollLink'
 
 function classNames(...classes:string[]) {
   return classes.filter(Boolean).join(' ')
 }
-
-const Navbar = () => {
+type Props = {
+  sectionReviews: string
+  sectionServices: string
+  sectionAbout: string
+  sectionContact: string
+}
+const Navbar = (props: Props) => {
+  const { sectionReviews, sectionServices, sectionAbout, sectionContact } = props
    return (
     <Disclosure as="nav" className="bg-white shadow">
       {({ open }) => (
@@ -32,26 +39,30 @@ const Navbar = () => {
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-                  <a
-                    className="inline-flex items-center border-b-2 border-red-500 px-1 pt-1 text-sm font-medium text-gray-900"
+                  <ScrollLink
+                    href="#services"
+                    className="inline-flex items-center border-b-2 hover:border-red-500 text-gray-500 border-gray-300 px-1 pt-1 text-sm font-medium hover:text-gray-900"
                   >
-                    Dashboard
-                  </a>
-                  <a
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    {sectionServices}
+                  </ScrollLink>
+                  <ScrollLink
+                    href="#benefit"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-red-500 border-gray-300  hover:text-gray-700"
                   >
-                    Team
-                  </a>
-                  <a
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    {sectionAbout}
+                  </ScrollLink>
+                  <ScrollLink
+                    href="#contact"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-red-500 border-gray-300  hover:text-gray-700"
                   >
-                    Projects
-                  </a>
-                  <a
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700"
+                    {sectionContact}
+                  </ScrollLink>
+                  <ScrollLink
+                    href="#reviews"
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-red-500 border-gray-300 hover:text-gray-700"
                   >
-                    Calendar
-                  </a>
+                    {sectionReviews}
+                  </ScrollLink>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
@@ -62,21 +73,21 @@ const Navbar = () => {
                   <span className="sr-only">View notifications</span>
                 </button>
                 <div
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-red-500 border-gray-300 hover:text-gray-700">
                       <Link href='/ru'>
                       ru
                 </Link>
                   </div>
                 <span>/</span>
                 <div
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-red-500 border-gray-300 hover:text-gray-700">
                 <Link href='/ua'>
                     ua
                 </Link>
                   </div>
                 <span>/</span>
                 <div
-                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-gray-300 hover:text-gray-700">
+                  className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-medium text-gray-500 hover:border-red-500 border-gray-300 hover:text-gray-700">
                   <Link href='/pl'>
                       pl
                 </Link>
@@ -135,30 +146,38 @@ const Navbar = () => {
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pt-2 pb-4">
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              <ScrollLink href="#services">
               <Disclosure.Button
                 as="a"
-                className="block border-l-4 border-red-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-red-700"
+                className="block border-l-4 text-gray-500 py-2 pl-3 pr-4 text-base font-medium hover:text-red-700 hover:border-red-500 hover:bg-indigo-50"
               >
-                Dashboard
+                {sectionServices}
               </Disclosure.Button>
+              </ScrollLink>
+              <ScrollLink href="#benefit">
               <Disclosure.Button
                 as="a"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-red-500 hover:bg-indigo-50 hover:text-gray-700"
               >
-                Team
+                {sectionAbout}
               </Disclosure.Button>
+              </ScrollLink>
+              <ScrollLink href="#contact">
               <Disclosure.Button
                 as="a"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-red-500 hover:bg-indigo-50 hover:text-gray-700"
               >
-                Projects
+                {sectionContact}
               </Disclosure.Button>
+              </ScrollLink>
+              <ScrollLink href="#reviews">
               <Disclosure.Button
                 as="a"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-red-500 hover:bg-indigo-50 hover:text-gray-700"
               >
-                Calendar
+                {sectionReviews}
               </Disclosure.Button>
+              </ScrollLink>
             </div>
           </Disclosure.Panel>
         </>

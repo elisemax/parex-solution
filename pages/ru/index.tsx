@@ -61,6 +61,7 @@ const CARDS: CardDescription[] = [
   }
 ]
 const titleMain = 'Parex Partners'
+const buttonMain = 'Заказать звонок'
 const descriptionMain = 'Консультационные услуги и помощь в получении карты побыту в Великопольском воеводстве'
 const titleCard = 'ВОЗМОЖНОСТИ КАРТЫ ПОБЫТУ'
 
@@ -135,6 +136,7 @@ const modalError = 'Произошла ошибка. Попробуйте поз
 const modalButton = 'Закрыть'
 const lang = 'ru'
 
+
 export default function Lang() {
   const [ openModal, setOpenModal ] = useState(false)
   const [ error, setError ] = useState(false)
@@ -147,8 +149,8 @@ export default function Lang() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
         <main>
-          <Navbar/>
-          <MainSection title={titleMain} description={descriptionMain}/>
+          <Navbar sectionAbout='Выгоды' sectionContact='Связаться' sectionReviews='Отзывы' sectionServices='Услуги'/>
+          <MainSection button={buttonMain} title={titleMain} description={descriptionMain}/>
           <CardList title={titleCard} cards={CARDS}/>
           <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
           <Contact lang={lang} setOpen={setOpenModal} setIsLoading={setIsLoading} setError={setError} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>

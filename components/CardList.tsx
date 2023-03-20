@@ -16,7 +16,7 @@ export default function CardList(props:Props) {
   const { cards, title } = props
   return (
     <div className="bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+      <div id='benefit' className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="rounded-2xl bg-gray-50 px-6 py-8 sm:p-8">
           <div className="mx-auto max-w-xl lg:max-w-none">
             <div className="text-center">
