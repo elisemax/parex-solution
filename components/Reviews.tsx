@@ -1,49 +1,25 @@
 import React from 'react'
 import { StarIcon } from '@heroicons/react/20/solid'
 
-const reviews = [
-  {
-    id: 1,
-    title: "Can't say enough good things",
-    rating: 5,
-    content: `
-      <p>I was really pleased with the overall shopping experience. My order even included a little personal, handwritten note, which delighted me!</p>
-      <p>The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!</p>
-    `,
-    author: 'Risako M',
-    date: 'May 16, 2021',
-    datetime: '2021-01-06',
-  },
-    {
-    id: 2,
-    title: "Can't say enough good things",
-    rating: 5,
-    content: `
-      <p>I was really pleased with the overall shopping experience. My order even included a little personal, handwritten note, which delighted me!</p>
-      <p>The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!</p>
-    `,
-    author: 'Risako M',
-    date: 'May 16, 2021',
-    datetime: '2021-01-06',
-  },
-    {
-    id: 3,
-    title: "Can't say enough good things",
-    rating: 5,
-    content: `
-      <p>I was really pleased with the overall shopping experience. My order even included a little personal, handwritten note, which delighted me!</p>
-      <p>The product quality is amazing, it looks and feel even better than I had anticipated. Brilliant stuff! I would gladly recommend this store to my friends. And, now that I think of it... I actually have, many times!</p>
-    `,
-    author: 'Risako M',
-    date: 'May 16, 2021',
-    datetime: '2021-01-06',
-  },
-]
+type Review = {
+  id: number
+  title: string
+  rating: number
+  content: string
+  author: string
+  date: string
+  datetime: string
+}
+
+type Props = {
+  reviews: Review[]
+}
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
-export default function Reviews() {
+export default function Reviews(props: Props) {
+  const { reviews } = props
   return (
     <div className="bg-white">
       <div id='reviews' className="mx-auto max-w-2xl py-8 px-4 sm:py-12 sm:px-6 lg:max-w-7xl lg:px-8">

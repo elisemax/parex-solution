@@ -135,6 +135,47 @@ const modalError = 'Сталася помилка. Спробуйте пізні
 const modalButton = 'Закрити'
 const lang = 'ua'
 
+const reviews = [
+  {
+    id: 1,
+    title: "Дуже гарна робота!",
+    rating: 5,
+    content: `
+      <p>Дуже задоволений роботою компанії з оформлення польської карти перебування для іноземців. Професійний підхід та увага до деталей зробили весь процес дуже легким та зрозумілим. Я отримав необхідну допомогу та консультації на кожному етапі процесу, що було дуже важливо для мене.</p>
+      <p>Компанія дотримувалася всіх вимог та термінів, що сприяло швидкому та успішному оформленню карти перебування. Я рекомендую цю компанію для всіх, хто шукає надійного партнера для оформлення польської карти перебування для іноземців.</p>
+    `,
+    author: 'Петр',
+    date: 'Травень 4, 2022',
+    datetime: '2022-01-06',
+  },
+    {
+    id: 2,
+    title: "Швидко та якісно",
+    rating: 5,
+    content: `
+      <p>Я хотів би поділитися своїм досвідом співпраці з компанією, яка займається оформленням польських карт перебування для іноземців. Я отримав від професійних працівників компанії необхідну допомогу та підтримку на кожному етапі процесу.</p>
+      <p>Мені дуже сподобалось, як компанія надає індивідуальний підхід до кожного клієнта та надає послуги на високому рівні. Я почував себе впевнено та захищено в процесі оформлення документів.
+      Я раджу цю компанію як надійного партнера для оформлення польської карти перебування для іноземців. Дякую за професіоналізм та увагу до моїх потреб!"</p>
+    `,
+    author: 'Марія',
+    date: 'Липня 3, 2022',
+    datetime: '2022-02-07',
+  },
+    {
+    id: 3,
+    title: "Мені все сподобалося",
+    rating: 5,
+    content: `
+      <p>Я хочу висловити своє задоволення співпрацею з компанією, що займається оформленням польських карт перебування для іноземців. Професійний підхід та уважність до кожної деталі процесу вражає.
+        Команда компанії була дуже дружелюбною та відкритою в комунікації. Я отримав від них не тільки необхідну допомогу в оформленні документів, але й чудові поради щодо перебування в Польщі.</p>
+      <p>Я був приємно здивований швидкістю та якістю роботи компанії. Якщо вам потрібна допомога в оформленні польської карти перебування для іноземців, я рекомендую звернутися до цієї компанії. Дякую за вашу професіоналізм та відмінне обслуговування!</p>
+    `,
+    author: 'Микола',
+    date: 'Жовтень 16, 2022',
+    datetime: '2022-10-18',
+  },
+]
+
 export default function Lang() {
   const [ openModal, setOpenModal ] = useState(false)
   const [ error, setError ] = useState(false)
@@ -153,7 +194,7 @@ export default function Lang() {
           <FeatureSection title={titleFeature} description={descriptionFeature} features={features}/>
           <Contact lang={lang} setOpen={setOpenModal} setIsLoading={setIsLoading} setError={setError} labelName={labelName} labelMail={labelMail} labelPhone={labelPhone} contacts={contacts} title={titleContact} description={descriptionContact} privacy={privacy} btn={btn} policy={policy}/>
           <Modal modalTitleError={modalTitleError} modalTitleSuccess={modalTitleSuccess} button={modalButton} modalSuccess={modalSuccess} modalError={modalError} setOpen={setOpenModal} error={error} open={openModal} isLoading={isLoading}/>
-          <Reviews/>
+          <Reviews reviews={reviews}/>
           <Footer lang={lang} privacy={privacy} policy={policy} description={descriptionContact}/>
         </main>
       </>
